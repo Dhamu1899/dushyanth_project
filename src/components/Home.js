@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../index.css";
 
 const Home = () => {
@@ -10,9 +11,10 @@ const Home = () => {
           Visit <span className="changecontent">Amazing Places</span>
         </h1>
         <p className="mb-4">Travel Anywhere of your choice</p>
-        <a href="#book" className="btn btn-primary">
+        {/* Use Link for navigation */}
+        <Link to="/book" className="btn btn-primary">
           Book Place
-        </a>
+        </Link>
       </div>
     </div>
   );

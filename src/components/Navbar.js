@@ -7,12 +7,26 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
 
-  useEffect(() => {
+  // Function to sync state with localStorage changes
+  const syncLoginState = () => {
     const userLoggedIn = localStorage.getItem("isLoggedIn");
     const userEmail = localStorage.getItem("email");
 
     setIsLoggedIn(userLoggedIn === "true");
-    setIsAdmin(userEmail === "admin@example.com"); // Check if the logged in user is admin
+    setIsAdmin(userEmail === "admin@example.com");
+  };
+
+  useEffect(() => {
+    // Initial check on component mount
+    syncLoginState();
+
+    // Add event listener for localStorage changes
+    window.addEventListener("storage", syncLoginState);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("storage", syncLoginState);
+    };
   }, []);
 
   const handleLogout = () => {

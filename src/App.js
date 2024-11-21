@@ -9,7 +9,7 @@ import Services from "./components/Services";
 import Gallery from "./components/Gallery";
 import About from "./components/About";
 import LoginPage from "./components/Loginpage";
-import AdminLoginPage from "./components/AdminLoginPage"; // Admin Login page import
+import AdminLoginPage from "./components/AdminLoginPage";
 import AdminDashboard from "./components/AdminDashboard";
 import RegisteredUsers from "./components/RegisteredUsers";
 import BookingDetails from "./components/BookingDetails";
@@ -29,9 +29,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/UserDashboard" element={<UserDashboard />} />
-        
-        {/* Admin routes */}
-        <Route path="/admin/login" element={<AdminLoginPage />} /> {/* Admin Login */}
+        <Route path="/admin/login" element={<AdminLoginPage />} />
         <Route path="/admin/dashboard" element={<AdminDashboard />} />
         <Route path="/admin/registered-users" element={<RegisteredUsers />} />
         <Route path="/admin/booking-details" element={<BookingDetails />} />
